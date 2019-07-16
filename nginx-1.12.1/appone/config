@@ -1,0 +1,14 @@
+ngx_addon_name=appone
+HTTP_APPCORE_MODULE=ngx_http_appcore_module
+HTTP_CONNECT_MODULE=ngx_http_proxy_connect_module
+HTTP_PROXY_SWITCH_MODULE=ngx_http_proxy_switch_module
+HTTP_MODULES="$HTTP_MODULES $HTTP_APPCORE_MODULE $HTTP_CONNECT_MODULE $HTTP_PROXY_SWITCH_MODULE"
+HTTP_INCS="$HTTP_INCS $ngx_addon_dir/src"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/src/ngx_http_appcore.c"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/src/ngx_http_extra.c"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/src/ngx_http_proxy_connect_module.c"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/src/ngx_http_proxy_switch_module.c"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/src/ngx_http_appcore.h"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/src/ngx_http_extra.h"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/src/ngx_http_proxy_switch.h"
+have=NGX_HTTP_PROXY_CONNECT . auto/have
